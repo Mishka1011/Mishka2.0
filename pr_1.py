@@ -1,22 +1,52 @@
 import matplotlib.pyplot as plt
 import numpy as np
+laptops_by_char = {
+    "Процессор (ГГц)": {
+        "ASUS ROG Strix": 2.6,
+        "Lenovo Legion 5": 3.0,
+        "HP Omen 15": 2.8,
+        "MSI GF65": 2.5
+    },
+    "ОЗУ (ГБ)": {
+        "ASUS ROG Strix": 16,
+        "Lenovo Legion 5": 32,
+        "HP Omen 15": 16,
+        "MSI GF65": 16
+    },
+    "SSD (ГБ)": {
+        "ASUS ROG Strix": 512,
+        "Lenovo Legion 5": 1000,
+        "HP Omen 15": 512,
+        "MSI GF65": 256
+    },
+    "Видеокарта (ГБ)": {
+        "ASUS ROG Strix": 8,
+        "Lenovo Legion 5": 6,
+        "HP Omen 15": 4,
+        "MSI GF65": 6
+    },
+    "Экран (дюймы)": {
+        "ASUS ROG Strix": 15.6,
+        "Lenovo Legion 5": 15.6,
+        "HP Omen 15": 15.6,
+        "MSI GF65": 15.6
+    },
+    "Вес (кг)": {
+        "ASUS ROG Strix": 2.4,
+        "Lenovo Legion 5": 2.7,
+        "HP Omen 15": 2.3,
+        "MSI GF65": 2.1
+    }
+}
+models = list(laptops_by_char["Процессор (ГГц)"].keys())
+name_char = list(laptops_by_char.keys())
 
-models = ["ASUS ROG Strix", "Lenovo Legion 5", "HP Omen 15", "MSI GF65"]
-name_char = [
-    "Процессор (ГГц)",
-    "ОЗУ (ГБ)",
-    "SSD (ГБ)",
-    "Видеокарта (ГБ)",
-    "Экран (дюймы)",
-    "Вес (кг)",
-]
-char = [
-    [2.6, 16, 512, 8, 15.6, 2.4],
-    [3.0, 32, 1000, 6, 15.6, 2.7],
-    [2.8, 16, 512, 4, 15.6, 2.3],
-    [2.5, 16, 256, 6, 15.6, 2.1],
-]
-
+char = []
+for model in models:
+    model_values = []
+    for char_name in name_char:
+        model_values.append(laptops_by_char[char_name][model])
+    char.append(model_values)
 
 def get_normal(char):
     normal = []
